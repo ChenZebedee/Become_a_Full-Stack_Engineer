@@ -1,0 +1,11 @@
+# .github/workflows/build.yml
+name: Firmware CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: platformio/run@v1
+        with:
+          command: run --target upload
