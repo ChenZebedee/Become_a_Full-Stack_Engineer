@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式仪表盘</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 10;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav {
+            background-color: #f4f4f4;
+            width: 200px;
+            padding: 1rem;
+        }
+        nav ul {
+            list-style: none;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 0.5rem 0;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+        .panel {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin: 0.5rem;
+            flex: 1 1 300px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .metric {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .trend.up {
+            color: green;
+        }
+        .trend.down {
+            color: red;
+        }
+        .chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 200px;
+            margin-top: 1rem;
+        }
+        .bar {
+            width: 20px;
+            background-color: #36a2eb;
+            margin: 0 5px;
+        }
+        /* 平板视图 */
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                background-color: #333;
+                color: white;
+            }
+            nav ul {
+                display: flex;
+                justify-content: space-around;
+            }
+            nav a {
+                color: white;
+            }
+            main {
+                padding: 0.5rem;
+            }
+            .panel {
+                flex: 1 1 100%;
+            }
+        }
+        /* 手机视图 */
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            header h1 {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>仪表盘</h1>
+        <p>最近 7 天</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">概览</a></li>
+            <li><a href="#">流量</a></li>
+            <li><a href="#">参与度</a></li>
+            <li><a href="#">设置</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="panel">
+            <h2>总访问量</h2>
+            <p class="metric">1,234</p>
+            <p class="trend up">较上周 +5%</p>
+        </section>
+        <section class="panel">
+            <h2>每日访问量</h2>
+            <div class="chart">
+                <div class="bar" style="height: 50px;"></div>
+                <div class="bar" style="height: 70px;"></div>
+                <div class="bar" style="height: 60px;"></div>
+                <div class="bar" style="height: 80px;"></div>
+                <div class="bar" style="height: 90px;"></div>
+                <div class="bar" style="height: 100px;"></div>
+                <div class="bar" style="height: 85px;"></div>
+            </div>
+        </section>
+        <section class="panel">
+            <h2>热门页面</h2>
+            <ul>
+                <li><a href="#">首页</a> - 500 次查看</li>
+                <li><a href="#">关于</a> - 300 次查看</li>
+                <li><a href="#">联系</a> - 200 次查看</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

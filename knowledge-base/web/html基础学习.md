@@ -37,12 +37,16 @@
   * [style 元素](#style-%E5%85%83%E7%B4%A0)
   * [meta 元素](#meta-%E5%85%83%E7%B4%A0)
   * [script 元素](#script-%E5%85%83%E7%B4%A0)
+- [css 基础学习](#css-%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0)
+- [响应式仪表盘](#%E5%93%8D%E5%BA%94%E5%BC%8F%E4%BB%AA%E8%A1%A8%E7%9B%98)
 - [踩坑记录](#%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95)
 - [参考资源](#%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90)
 
 <!-- tocstop -->
 
 ## TODO LIST
+
+2025-02-26
 
 - [x] HTML 基础
 - [x] HTML 元素
@@ -51,7 +55,15 @@
 - [x] HTML 段落
 - [x] HTML 文本格式化
 - [x] HTML 链接
-- [ ] HTML head
+- [x] HTML head
+
+2025-02-27
+
+- [x] css基础
+
+2025-02-28
+
+- [x] 实现一个响应式仪表盘
 
 ## 环境配置
 
@@ -86,20 +98,26 @@ HTML 图像是通过标签 `<img>` 来定义的.
 ```html
 <img src="/images/logo.png" width="258" height="39" />
 <!-- 网络图片 -->
-<img src="https://th.bing.com/th/id/R.ffb2572d8f621f31d632fcb0a9947524?rik=xxaJsqmGoZLWdQ&riu=http%3a%2f%2fpic.kuaizhan.com%2fg3%2ff8%2fc4%2ff9e2-c03f-4afa-af6d-7b22091f9d4d99%2fimageView%2fv1%2fthumbnail%2f640x0&ehk=16sdTJ2KFXPOGZFAsTz7ktuhsr%2foo775NAXQYyakPyI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" width="258" height="39" />
+<img
+  src="https://th.bing.com/th/id/R.ffb2572d8f621f31d632fcb0a9947524?rik=xxaJsqmGoZLWdQ&riu=http%3a%2f%2fpic.kuaizhan.com%2fg3%2ff8%2fc4%2ff9e2-c03f-4afa-af6d-7b22091f9d4d99%2fimageView%2fv1%2fthumbnail%2f640x0&ehk=16sdTJ2KFXPOGZFAsTz7ktuhsr%2foo775NAXQYyakPyI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+  width="258"
+  height="39"
+/>
 <!-- 原始大小 -->
-<img src="https://th.bing.com/th/id/R.ffb2572d8f621f31d632fcb0a9947524?rik=xxaJsqmGoZLWdQ&riu=http%3a%2f%2fpic.kuaizhan.com%2fg3%2ff8%2fc4%2ff9e2-c03f-4afa-af6d-7b22091f9d4d99%2fimageView%2fv1%2fthumbnail%2f640x0&ehk=16sdTJ2KFXPOGZFAsTz7ktuhsr%2foo775NAXQYyakPyI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" />
+<img
+  src="https://th.bing.com/th/id/R.ffb2572d8f621f31d632fcb0a9947524?rik=xxaJsqmGoZLWdQ&riu=http%3a%2f%2fpic.kuaizhan.com%2fg3%2ff8%2fc4%2ff9e2-c03f-4afa-af6d-7b22091f9d4d99%2fimageView%2fv1%2fthumbnail%2f640x0&ehk=16sdTJ2KFXPOGZFAsTz7ktuhsr%2foo775NAXQYyakPyI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+/>
 ```
 
 ## HTML 元素
 
-|开始标签 *|元素内容|结束标签 *|
-|----|----|----|
-|`<p>`|这是一个段落|`</p>`|
-|`<a href="default.htm">`|这是一个链接|`</a>`|
-|`<br>`|换行||
+| 开始标签 \*              | 元素内容     | 结束标签 \* |
+| ------------------------ | ------------ | ----------- |
+| `<p>`                    | 这是一个段落 | `</p>`      |
+| `<a href="default.htm">` | 这是一个链接 | `</a>`      |
+| `<br>`                   | 换行         |             |
 
-*开始标签常被称为起始标签（opening tag），结束标签常称为闭合标签（closing tag）。
+\*开始标签常被称为起始标签（opening tag），结束标签常称为闭合标签（closing tag）。
 
 ### 语法
 
@@ -123,11 +141,9 @@ HTML 文档由相互嵌套的 HTML 元素构成。
 ```html
 <!DOCTYPE html>
 <html>
-
-<body>
-<p>这是第一个段落。</p>
-</body>
-
+  <body>
+    <p>这是第一个段落。</p>
+  </body>
 </html>
 ```
 
@@ -163,51 +179,51 @@ HTML 标签对大小写不敏感：`<P>` 等同于 `<p>`。许多网站都使用
 
 下面列出了适用于大多数 HTML 元素的属性：
 
-| 属性名       | 适用元素                     | 说明                                                                 |
-|--------------|-----------------------------|----------------------------------------------------------------------|
-| `id`         | 所有元素                    | 为元素指定唯一的标识符                                              |
-| `class`      | 所有元素                    | 为元素指定一个或多个类名，用于 CSS/JavaScript 选择                  |
-| `style`      | 所有元素                    | 直接在元素上应用 CSS 样式                                           |
-| `title`      | 所有元素                    | 提供额外提示信息（鼠标悬停时显示）                                  |
-| `data-*`     | 所有元素                    | 存储自定义数据（`*` 为自定义名称，如 `data-user`）                   |
-| `href`       | `<a>`, `<link>`             | 指定链接的目标 URL                                                  |
-| `src`        | `<img>`, `<script>`, `<iframe>` | 指定外部资源（图片/脚本/框架）的 URL                               |
-| `alt`        | `<img>`                     | 图像无法显示时的替代文本                                            |
-| `type`       | `<input>`, `<button>`       | 指定输入控件类型（如 `text`, `password`, `checkbox` 等）            |
-| `value`      | `<input>`, `<button>`, `<option>` | 指定元素的初始值                                                 |
-| `disabled`   | 表单元素                    | 禁用元素交互                                                        |
-| `checked`    | `<input type="checkbox/radio">` | 指定复选框/单选框默认选中                                         |
-| `placeholder`| `<input>`, `<textarea>`     | 输入框中显示提示文本                                                |
-| `target`     | `<a>`, `<form>`             | 指定链接/表单提交的目标（如 `_blank` 新标签页）                     |
-| `readonly`   | 表单元素                    | 输入框只读（不可编辑）                                              |
-| `required`   | 表单元素                    | 指定输入字段为必填项                                                |
-| `autoplay`   | `<audio>`, `<video>`        | 自动播放媒体                                                        |
-| `onclick`    | 所有元素                    | 点击元素时触发 JavaScript 代码                                      |
-| `onmouseover`| 所有元素                    | 鼠标悬停时触发 JavaScript 代码                                      |
-| `onchange`   | 表单元素                    | 元素值变化时触发 JavaScript 代码                                    |
+| 属性名        | 适用元素                          | 说明                                                     |
+| ------------- | --------------------------------- | -------------------------------------------------------- |
+| `id`          | 所有元素                          | 为元素指定唯一的标识符                                   |
+| `class`       | 所有元素                          | 为元素指定一个或多个类名，用于 CSS/JavaScript 选择       |
+| `style`       | 所有元素                          | 直接在元素上应用 CSS 样式                                |
+| `title`       | 所有元素                          | 提供额外提示信息（鼠标悬停时显示）                       |
+| `data-*`      | 所有元素                          | 存储自定义数据（`*` 为自定义名称，如 `data-user`）       |
+| `href`        | `<a>`, `<link>`                   | 指定链接的目标 URL                                       |
+| `src`         | `<img>`, `<script>`, `<iframe>`   | 指定外部资源（图片/脚本/框架）的 URL                     |
+| `alt`         | `<img>`                           | 图像无法显示时的替代文本                                 |
+| `type`        | `<input>`, `<button>`             | 指定输入控件类型（如 `text`, `password`, `checkbox` 等） |
+| `value`       | `<input>`, `<button>`, `<option>` | 指定元素的初始值                                         |
+| `disabled`    | 表单元素                          | 禁用元素交互                                             |
+| `checked`     | `<input type="checkbox/radio">`   | 指定复选框/单选框默认选中                                |
+| `placeholder` | `<input>`, `<textarea>`           | 输入框中显示提示文本                                     |
+| `target`      | `<a>`, `<form>`                   | 指定链接/表单提交的目标（如 `_blank` 新标签页）          |
+| `readonly`    | 表单元素                          | 输入框只读（不可编辑）                                   |
+| `required`    | 表单元素                          | 指定输入字段为必填项                                     |
+| `autoplay`    | `<audio>`, `<video>`              | 自动播放媒体                                             |
+| `onclick`     | 所有元素                          | 点击元素时触发 JavaScript 代码                           |
+| `onmouseover` | 所有元素                          | 鼠标悬停时触发 JavaScript 代码                           |
+| `onchange`    | 表单元素                          | 元素值变化时触发 JavaScript 代码                         |
 
 样例模板，html代码
 
 ```html
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>HTML 属性示例大全</title>
     <style>
-        pre {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        .comment {
-            color: #666;
-            margin: 20px 0 10px;
-        }
+      pre {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+      .comment {
+        color: #666;
+        margin: 20px 0 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>HTML 属性示例</h1>
 
     <!-- ========== 全局属性 ========== -->
@@ -231,29 +247,29 @@ HTML 标签对大小写不敏感：`<P>` 等同于 `<p>`。许多网站都使用
     <a href="https://www.example.com ">Visit Example</a>
 
     <!-- src（用于 <img>, <script>, <iframe> 等元素）：指定外部资源的 URL 。 -->
-    <img src="image.jpg" alt="An example image">
+    <img src="image.jpg" alt="An example image" />
 
     <!-- alt（用于 <img> 元素）：为图像提供替代文本。 -->
-    <img src="image.jpg" alt="An example image">
+    <img src="image.jpg" alt="An example image" />
 
     <!-- type（用于 <input> 和 <button> 元素）：指定输入控件的类型。 -->
-    <input type="text" placeholder="Enter your name">
+    <input type="text" placeholder="Enter your name" />
 
     <!-- value（用于 <input>, <button>, <option> 等元素）：指定元素的初始值。 -->
-    <input type="text" value="Default Value">
+    <input type="text" value="Default Value" />
 
     <!-- ========== 布尔属性 ========== -->
     <!-- disabled：禁用元素。 -->
-    <input type="text" disabled>
+    <input type="text" disabled />
 
     <!-- checked：指定复选框或单选按钮是否被选中。 -->
-    <input type="checkbox" checked>
+    <input type="checkbox" checked />
 
     <!-- readonly：使输入框只读。 -->
-    <input type="text" readonly>
+    <input type="text" readonly />
 
     <!-- required：指定输入字段为必填项。 -->
-    <input type="text" required>
+    <input type="text" required />
 
     <!-- autoplay（用于 <audio> 和 <video> 元素）：自动播放媒体。 -->
     <video src="video.mp4" autoplay></video>
@@ -270,8 +286,8 @@ HTML 标签对大小写不敏感：`<P>` 等同于 `<p>`。许多网站都使用
     <div onmouseover="this.style.backgroundColor='yellow'">Hover over me</div>
 
     <!-- onchange：当元素的值发生变化时触发。 -->
-    <input type="text" onchange="alert('Value changed!')">
-</body>
+    <input type="text" onchange="alert('Value changed!')" />
+  </body>
 </html>
 ```
 
@@ -287,27 +303,27 @@ HTML 标签对大小写不敏感：`<P>` 等同于 `<p>`。许多网站都使用
 
 应该将 h1 用作主标题（最重要的），其后是 h2（次重要的），再其次是 h3，以此类推。
 
-| 标签          | 描述              |
-|---------------|-------------------|
-| `<html>`      | 定义 HTML 文档     |
-| `<body>`      | 定义文档的主体      |
-| `<h1> - <h6>` | 定义 HTML 标题     |
-| `<hr>`        | 定义水平线         |
-| `<!--...-->`  | 定义注释           |
+| 标签          | 描述           |
+| ------------- | -------------- |
+| `<html>`      | 定义 HTML 文档 |
+| `<body>`      | 定义文档的主体 |
+| `<h1> - <h6>` | 定义 HTML 标题 |
+| `<hr>`        | 定义水平线     |
+| `<!--...-->`  | 定义注释       |
 
 ## HTML 段落
 
 段落是通过 `<p>` 标签定义的。
 
 ```html
-<p>这是一个段落 </p>
+<p>这是一个段落</p>
 <p>这是另一个段落</p>
 ```
 
 如果您希望在不产生一个新段落的情况下进行换行（新行），请使用 `<br>` 标签：
 
 ```html
-<p>这个<br>段落<br>演示了分行的效果</p>
+<p>这个<br />段落<br />演示了分行的效果</p>
 ```
 
 `<p>` 分段 `<br>` 分行
@@ -316,39 +332,39 @@ HTML 标签对大小写不敏感：`<P>` 等同于 `<p>`。许多网站都使用
 
 ### HTML 文本格式化标签
 
-| 标签         | 描述                 |
-|--------------|----------------------|
-| `<b>`        | 定义粗体文本         |
-| `<em>`       | 定义着重文字         |
-| `<i>`        | 定义斜体字           |
-| `<small>`    | 定义小号字           |
-| `<strong>`   | 定义加重语气         |
-| `<sub>`      | 定义下标字           |
-| `<sup>`      | 定义上标字           |
-| `<ins>`      | 定义插入字,下划线    |
-| `<del>`      | 定义删除字           |
+| 标签       | 描述              |
+| ---------- | ----------------- |
+| `<b>`      | 定义粗体文本      |
+| `<em>`     | 定义着重文字      |
+| `<i>`      | 定义斜体字        |
+| `<small>`  | 定义小号字        |
+| `<strong>` | 定义加重语气      |
+| `<sub>`    | 定义下标字        |
+| `<sup>`    | 定义上标字        |
+| `<ins>`    | 定义插入字,下划线 |
+| `<del>`    | 定义删除字        |
 
 ### HTML "计算机输出" 标签
 
-| 标签         | 描述                     |
-|--------------|--------------------------|
-| `<code>`     | 定义计算机代码           |
-| `<kbd>`      | 定义键盘码               |
-| `<samp>`     | 定义计算机代码样本       |
-| `<var>`      | 定义变量                 |
-| `<pre>`      | 定义预格式文本           |
+| 标签     | 描述               |
+| -------- | ------------------ |
+| `<code>` | 定义计算机代码     |
+| `<kbd>`  | 定义键盘码         |
+| `<samp>` | 定义计算机代码样本 |
+| `<var>`  | 定义变量           |
+| `<pre>`  | 定义预格式文本     |
 
 ### HTML 引文、引用及标签定义
 
-| 标签             | 描述                       |
-|------------------|----------------------------|
-| `<abbr>`         | 定义缩写                   |
-| `<address>`      | 定义地址                   |
-| `<bdo>`          | 定义文字方向               |
-| `<blockquote>`   | 定义长的引用               |
-| `<q>`            | 定义短的引用语             |
-| `<cite>`         | 定义引用、引证             |
-| `<dfn>`          | 定义一个定义项目           |
+| 标签           | 描述             |
+| -------------- | ---------------- |
+| `<abbr>`       | 定义缩写         |
+| `<address>`    | 定义地址         |
+| `<bdo>`        | 定义文字方向     |
+| `<blockquote>` | 定义长的引用     |
+| `<q>`          | 定义短的引用语   |
+| `<cite>`       | 定义引用、引证   |
+| `<dfn>`        | 定义一个定义项目 |
 
 ## HTML 链接
 
@@ -383,7 +399,9 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 - **示例**：
 
   ```html
-  <a href="https://www.example.com" target="_blank" rel="noopener">新窗口打开</a>
+  <a href="https://www.example.com" target="_blank" rel="noopener"
+    >新窗口打开</a
+  >
   ```
 
 ### 3. rel
@@ -483,13 +501,13 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 ```html
 <!DOCTYPE html>
 <html>
-<head> 
-    <meta charset="utf-8"> 
+  <head>
+    <meta charset="utf-8" />
     <title>文档标题</title>
-</head>
-<body>
+  </head>
+  <body>
     文档内容......
-</body>
+  </body>
 </html>
 ```
 
@@ -498,12 +516,12 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 - **作用**: 为页面所有相对链接设置默认地址/目标
 - **属性**:
   - `href`: 基础链接地址
-  - `target`: 默认打开方式（如 _blank,_self 等）
+  - `target`: 默认打开方式（如 \_blank,\_self 等）
 - **示例**:
 
 ```html
 <head>
-    <base href="https://www.example.com/images/" target="_blank">
+  <base href="https://www.example.com/images/" target="_blank" />
 </head>
 ```
 
@@ -519,7 +537,7 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 
 ```html
 <head>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css" />
 </head>
 ```
 
@@ -530,10 +548,14 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 
 ```html
 <head>
-    <style type="text/css">
-        body { background-color: yellow; }
-        p { color: blue; }
-    </style>
+  <style type="text/css">
+    body {
+      background-color: yellow;
+    }
+    p {
+      color: blue;
+    }
+  </style>
 </head>
 ```
 
@@ -542,12 +564,12 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 - **作用**: 提供文档元数据
 - **常见用途**:
 
-| 属性                | 示例                                      | 用途说明                 |
-|---------------------|------------------------------------------|------------------------|
-| name="keywords"     | `<meta name="keywords" content="HTML, CSS">` | 定义搜索引擎关键词       |
-| name="description"  | `<meta name="description" content="免费教程">` | 定义页面描述             |
-| name="author"       | `<meta name="author" content="作者名">`      | 声明页面作者             |
-| http-equiv="refresh"| `<meta http-equiv="refresh" content="30">`   | 设置页面刷新间隔（秒）   |
+| 属性                 | 示例                                           | 用途说明               |
+| -------------------- | ---------------------------------------------- | ---------------------- |
+| name="keywords"      | `<meta name="keywords" content="HTML, CSS">`   | 定义搜索引擎关键词     |
+| name="description"   | `<meta name="description" content="免费教程">` | 定义页面描述           |
+| name="author"        | `<meta name="author" content="作者名">`        | 声明页面作者           |
+| http-equiv="refresh" | `<meta http-equiv="refresh" content="30">`     | 设置页面刷新间隔（秒） |
 
 ### script 元素
 
@@ -557,13 +579,218 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 
 ```html
 <script>
-    function myFunction() {
-        document.getElementById("demo").innerHTML = "Hello JavaScript!";
-    }
+  function myFunction() {
+    document.getElementById("demo").innerHTML = "Hello JavaScript!";
+  }
 </script>
 
 <!-- 外部脚本示例 -->
 <script src="myscripts.js"></script>
+```
+
+## css 基础学习
+
+东西很多
+
+## 响应式仪表盘
+
+```html
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应式仪表盘</title>
+    <style>
+      /* 顶部展示区 */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        flex-wrap: wrap;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        flex-shrink: 1;
+      }
+
+      .logo {
+        max-width: 100px;
+        height: auto;
+      }
+
+      .company-name {
+        font-size: 24px;
+        margin-left: 10px;
+        white-space: nowrap;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .device-stats {
+        margin-right: 20px;
+        white-space: nowrap;
+      }
+
+      .add-device-btn {
+        padding: 10px 20px;
+        background-color: #00000f;
+        color: white; /*字体颜色*/
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      /* 动态变化设置 */
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .header-right {
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-right {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .device-stats {
+          margin-bottom: 10px;
+        }
+      }
+      /* 设备卡片区域 */
+      .main-content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+
+      .device-card {
+        width: calc(33.33% - 20px);
+        margin: 10px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      .device-card h3 {
+        margin: 0 0 10px 0;
+      }
+
+      .device-card p {
+        margin: 0 0 10px 0;
+      }
+
+      .delete-btn,
+      .detail-btn {
+        padding: 5px 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .delete-btn {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      .detail-btn {
+        background-color: #007bff;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .device-card {
+          width: calc(50% - 20px);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .device-card {
+          width: 100%;
+        }
+      }
+
+      /* 设备详情页面 */
+
+      .detail-content {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      .detail-content h2 {
+        margin-bottom: 20px;
+      }
+
+      .detail-content p {
+        margin: 10px 0;
+      }
+
+      .back-btn {
+        padding: 10px 20px;
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="head-left">
+        <img src="logo.png" alt="Logo" class="logo" />
+        <h1 class="company-name">公司名称</h1>
+      </div>
+      <div class="header-right">
+        <div class="device-stats">
+          <span>设备总数：100</span>
+          <span>离线设备：5</span>
+        </div>
+        <button class="add-device-btn">添加设备</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="device-card">
+        <h3>设备名称</h3>
+        <p>ai地址</p>
+        <button class="delete-btn">删除</button>
+        <button class="detail-btn">详细信息</button>
+      </div>
+      <div class="device-card">
+        <h3>设备名称2</h3>
+        <p>ai地址</p>
+        <button class="delete-btn">删除</button>
+        <button class="detail-btn">详细信息</button>
+      </div>
+      <div class="device-card">
+        <h3>设备名称3</h3>
+        <p>ai地址</p>
+        <button class="delete-btn">删除</button>
+        <button class="detail-btn">详细信息</button>
+      </div>
+    </main>
+  </body>
+</html>
 ```
 
 ## 踩坑记录
@@ -572,4 +799,4 @@ HTML 链接 通过 `<a>` 标签创建，通常用于将用户从一个页面导�
 
 ## 参考资源
 
-- [菜鸟教程](https://www.runoob.com/html/html-basic.html )
+- [菜鸟教程](https://www.runoob.com/html/html-basic.html)

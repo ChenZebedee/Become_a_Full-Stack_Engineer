@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应式仪表盘</title>
+    <style>
+      /* 顶部展示区 */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        flex-wrap: wrap;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        flex-shrink: 1;
+      }
+
+      .logo {
+        max-width: 100px;
+        height: auto;
+      }
+
+      .company-name {
+        font-size: 24px;
+        margin-left: 10px;
+        white-space: nowrap;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .device-stats {
+        margin-right: 20px;
+        white-space: nowrap;
+      }
+
+      .add-device-btn {
+        padding: 10px 20px;
+        background-color: #00000f;
+        color: white; /*字体颜色*/
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      /* 动态变化设置 */
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .header-right {
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-right {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .device-stats {
+          margin-bottom: 10px;
+        }
+      }
+      /* 设备卡片区域 */
+      .main-content {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+
+      .device-card {
+        width: calc(33.33% - 20px);
+        margin: 10px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      .device-card h3 {
+        margin: 0 0 10px 0;
+      }
+
+      .device-card p {
+        margin: 0 0 10px 0;
+      }
+
+      .delete-btn,
+      .detail-btn {
+        padding: 5px 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .delete-btn {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      .detail-btn {
+        background-color: #007bff;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .device-card {
+          width: calc(50% - 20px);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .device-card {
+          width: 100%;
+        }
+      }
+
+      /* 设备详情页面 */
+
+      .detail-content {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      .detail-content h2 {
+        margin-bottom: 20px;
+      }
+
+      .detail-content p {
+        margin: 10px 0;
+      }
+
+      .back-btn {
+        padding: 10px 20px;
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="head-left">
+        <img src="logo.png" alt="Logo" class="logo" />
+        <h1 class="company-name">公司名称</h1>
+      </div>
+      <div class="header-right">
+        <div class="device-stats">
+          <span>设备总数：100</span>
+          <span>离线设备：5</span>
+        </div>
+        <button class="add-device-btn">添加设备</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="device-card">
+        <h3>设备名称</h3>
+        <p>ai地址</p>
+        <button class="delete-btn">删除</button>
+        <button class="detail-btn">详细信息</button>
+      </div>
+      <div class="device-card">
+        <h3>设备名称2</h3>
+        <p>ai地址</p>
+        <button class="delete-btn">删除</button>
+        <button class="detail-btn">详细信息</button>
+      </div>
+      <div class="device-card">
+        <h3>设备名称3</h3>
+        <p>ai地址</p>
+        <button class="delete-btn">删除</button>
+        <button class="detail-btn">详细信息</button>
+      </div>
+    </main>
+  </body>
+</html>
